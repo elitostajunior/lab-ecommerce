@@ -1,5 +1,6 @@
 import React from "react";
 import Filtros from "./Componentes/Filtros/Filtros";
+import { pacoteDeProdutos } from "./pacoteDeProdutos";
 
 class App extends React.Component {
   state = {
@@ -27,6 +28,27 @@ class App extends React.Component {
   }
 
   render() {
+    const pacotesFiltradosMinimo = pacoteDeProdutos.filter(produto => {
+      if(this.state.filtroMinimo){
+        return produto.price >= this.state.filtroMinimo
+      }
+    })
+
+    const pacotesFiltradosMaximo = pacoteDeProdutos.filter(produto => {
+      if(this.state.filtroMaximo){
+        return produto.price <= this.state.filtroMaximo
+      } else {
+        return produto
+      }
+    })
+
+    const pacotesFiltradosBuscaPorNome = pacoteDeProdutos.filter(produto => {
+      return produto.name.includes(this.state.filtroBuscaPorNome)
+    })
+
+    console.log(pacotesFiltradosBuscaPorNome)
+
+
     return (
       <div>
         <Filtros
