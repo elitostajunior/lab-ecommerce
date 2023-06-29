@@ -8,17 +8,26 @@ class Filtros extends React.Component {
             <h2>Filtros</h2>
             <Filtro>
                 Filtro mínimo: 
-                <input type={"number"} />
+                <input type={"number"} 
+                value={this.props.minimo}
+                onChange={this.props.onChangeMinimo}
+                />
             </Filtro>
 
             <Filtro>
                 Filtro máximo: 
-                <input type={"number"} />
+                <input type={"number"} 
+                value={this.props.maximo}
+                onChange={this.props.onChangeMaximo}
+                />
             </Filtro>
 
             <Filtro>
                 Busca por nome: 
-                <input type={"text"} />
+                <input type={"text"} 
+                value={this.props.buscaPorNome}
+                onChange={this.props.onChangeBuscaPorNome}
+                />
             </Filtro>
         </GrupoDeFiltros>
     );
