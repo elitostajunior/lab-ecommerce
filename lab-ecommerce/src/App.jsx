@@ -1,6 +1,7 @@
 import React from "react";
 import Filtros from "./Componentes/Filtros/Filtros";
 import { pacoteDeProdutos } from "./pacoteDeProdutos";
+import Produtos from "./Componentes/Home/Produtos/Produtos";
 
 class App extends React.Component {
   state = {
@@ -56,7 +57,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <Filtros
+        {/* <Filtros
           minimo={this.state.filtroMinimo}
           maximo={this.state.filtroMaximo}
           buscaPorNome={this.state.filtroBuscaPorNome}
@@ -64,7 +65,8 @@ class App extends React.Component {
           onChangeMinimo = {this.manipularValorDoFiltroMinimo}
           onChangeMaximo = {this.manipularValorDoFiltroMaximo}
           onChangeBuscaPorNome = {this.manipularValorDoFiltroBuscaPorNome}
-        />       
+        />        */}
+        <Produtos />
       </div>
     );
   }
