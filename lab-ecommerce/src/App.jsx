@@ -50,6 +50,10 @@ class App extends React.Component {
     return pacoteFiltrado
   };
 
+  funcaoDeTeste = (event) => {
+    console.log(event.target.value)
+  }
+
   render() {
 
     const produtosFiltrados = this.filtrarProdutos()
@@ -66,7 +70,10 @@ class App extends React.Component {
           onChangeMaximo = {this.manipularValorDoFiltroMaximo}
           onChangeBuscaPorNome = {this.manipularValorDoFiltroBuscaPorNome}
         />        */}
-        <Produtos />
+        <Produtos
+          quantidade = {10}
+          onChangeCabecalho={this.funcaoDeTeste}
+        />
       </div>
     );
   }
