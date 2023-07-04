@@ -1,10 +1,20 @@
 import React from 'react';
 import { Cabecalho, GrupoDeCartoes } from './estiloDosProdutos';
 import CartaoDosProdutos from '../CartaoDosProdutos/CartaoDosProdutos';
+import { pacoteDeProdutos } from '../../../pacoteDeProdutos';
 
 class Produtos extends React.Component {
 
   render() {
+    const produtosMapeados = pacoteDeProdutos.map(produto => {
+        return <CartaoDosProdutos 
+            imagem={produto.photo}
+            nome={produto.name}
+            valor={produto.price}
+            onClick={() => console.log(produto.id)}
+        />
+    })
+
     return (
         <div>
             <Cabecalho>
@@ -18,12 +28,7 @@ class Produtos extends React.Component {
                 </label>
             </Cabecalho>
             <GrupoDeCartoes>
-                <CartaoDosProdutos
-                    imagem = {"https://picsum.photos/200/200?a=1"}
-                    nome = {"Produto"}
-                    valor = {"200"}
-                    onClick = {() => console.log("ok")}
-                />
+                {produtosMapeados}
             </GrupoDeCartoes>
         </div>
     )

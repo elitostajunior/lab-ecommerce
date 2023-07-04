@@ -11,6 +11,7 @@ export const TextoDoCartao = styled.div`
     flex-direction: column;
     p {
         margin: 0 16px;
+        padding: 10px;
     }
     button {
         margin: 10px;
