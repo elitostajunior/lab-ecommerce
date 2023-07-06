@@ -7,7 +7,8 @@ class App extends React.Component {
   state = {
     filtroMinimo: 20,
     filtroMaximo: 10000,
-    filtroBuscaPorNome: "busca"
+    filtroBuscaPorNome: "busca",
+    ordenacao: "Crescente"
   };
 
   manipularValorDoFiltroMinimo = (event) => {
@@ -50,6 +51,13 @@ class App extends React.Component {
     return pacoteFiltrado
   };
 
+  ordenarProdutos = (event) => {
+    console.log(event.target.value)
+    this.setState({
+      ordenacao: event.target.value
+    })
+  }
+
   funcaoDeTeste = (event) => {
     console.log(event.target.value)
   }
@@ -71,8 +79,10 @@ class App extends React.Component {
           onChangeBuscaPorNome = {this.manipularValorDoFiltroBuscaPorNome}
         />        */}
         <Produtos
-          quantidade = {10}
-          onChangeCabecalho={this.funcaoDeTeste}
+          quantidade = {pacoteDeProdutos.length}
+          onChangeCabecalho={this.ordenarProdutos}
+          ordenacao = {this.state.ordenacao}
+          produtos = {pacoteDeProdutos}
         />
       </div>
     );

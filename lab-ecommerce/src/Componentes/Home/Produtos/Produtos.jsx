@@ -1,19 +1,26 @@
 import React from 'react';
 import { Cabecalho, GrupoDeCartoes } from './estiloDosProdutos';
 import CartaoDosProdutos from '../CartaoDosProdutos/CartaoDosProdutos';
-import { pacoteDeProdutos } from '../../../pacoteDeProdutos';
 
 class Produtos extends React.Component {
 
   render() {
-    const produtosMapeados = pacoteDeProdutos.map(produto => {
+    const produtosOrdenados = this.props.produtos && this.props.produtos.sort((a, b) => {
+        if (this.props.ordenacao === "Crescente") {
+            return a.price - b.price;
+        } else {
+            return b.price - a.price;
+        }
+    });
+
+    const produtosMapeados = produtosOrdenados && produtosOrdenados.map(produto => {
         return <CartaoDosProdutos 
             imagem={produto.photo}
             nome={produto.name}
             valor={produto.price}
             onClick={() => console.log(produto.id)}
         />
-    })
+    });
 
     return (
         <div>
