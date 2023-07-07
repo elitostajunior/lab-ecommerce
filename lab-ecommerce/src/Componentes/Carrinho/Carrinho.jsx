@@ -4,17 +4,21 @@ import Itens from './Itens/Itens';
 
 class Carrinho extends React.Component {
     render() {
+        const itensDoCarrinho = this.props.carrinho && this.props.carrinho.map(item => {
+            return <Itens 
+                quantidade={item.quantidade}
+                nome={item.name}
+                onClick = {() => this.props.removerItemDoCarrinho(item)}
+            />
+        })
+
         return (
             <ConjuntoDoCarrinho>
                 <h2>Carrinho:</h2>
                 <div>
-                    <Itens
-                        quantidade={10}
-                        nome={"produto 1"}
-                        onClick = {() => console.log("removeu")}
-                    />
+                    {itensDoCarrinho}
                 </div>
-                <p>Valor total: R$ 0,00</p>
+                <p>Valor total: R$ {this.props.valorTotal},00</p>
             </ConjuntoDoCarrinho>
         )
     }

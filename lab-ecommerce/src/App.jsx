@@ -9,7 +9,22 @@ class App extends React.Component {
     filtroMinimo: 20,
     filtroMaximo: 10000,
     filtroBuscaPorNome: "busca",
-    ordenacao: "Crescente"
+    ordenacao: "Crescente",
+    carrinho: [
+      {
+        id: 1,
+        name: 'Produto legal',
+        price: 123,
+        photo: 'https://picsum.photos/200/200?a=1',
+      },
+      {
+        id: 2,
+        name: 'Produto 2',
+        price: 200,
+        photo: 'https://picsum.photos/200/200?a=2',
+      }
+    ],
+    valorTotal: 0
   };
 
   manipularValorDoFiltroMinimo = (event) => {
@@ -63,6 +78,10 @@ class App extends React.Component {
     console.log(produto)
   }
 
+  removerItemDoCarrinho = (item) => {
+    console.log("produto", item)
+  }
+
   render() {
 
     const produtosFiltrados = this.filtrarProdutos()
@@ -86,7 +105,11 @@ class App extends React.Component {
           produtos = {pacoteDeProdutos}
           onClick = {this.adicionarProdutoNoCarrinho}
         /> */}
-        <Carrinho/>
+        <Carrinho
+          carrinho = {this.state.carrinho}
+          valorTotal = {this.state.valorTotal}
+          removerItemDoCarrinho = {this.removerItemDoCarrinho}
+        />
       </div>
     );
   }
