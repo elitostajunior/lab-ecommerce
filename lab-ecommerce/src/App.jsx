@@ -2,6 +2,7 @@ import React from "react";
 import Filtros from "./Componentes/Filtros/Filtros";
 import { pacoteDeProdutos } from "./pacoteDeProdutos";
 import Produtos from "./Componentes/Home/Produtos/Produtos";
+import Carrinho from "./Componentes/Carrinho/Carrinho";
 
 class App extends React.Component {
   state = {
@@ -78,13 +79,14 @@ class App extends React.Component {
           onChangeMaximo = {this.manipularValorDoFiltroMaximo}
           onChangeBuscaPorNome = {this.manipularValorDoFiltroBuscaPorNome}
         />        */}
-        <Produtos
+        {/* <Produtos
           quantidade = {pacoteDeProdutos.length}
           onChangeCabecalho={this.ordenarProdutos}
           ordenacao = {this.state.ordenacao}
           produtos = {pacoteDeProdutos}
           onClick = {this.adicionarProdutoNoCarrinho}
-        />
+        /> */}
+        <Carrinho/>
       </div>
     );
   }
