@@ -5,9 +5,9 @@ class Itens extends React.Component {
     render() {
         return (
             <ConjuntoDeItens>
-                <p>1x</p>
-                <p>Produto</p>
-                <button>Remover</button>
+                <p>{this.props.quantidade}x</p>
+                <p>{this.props.nome}</p>
+                <button onClick={this.props.onClick}>Remover</button>
             </ConjuntoDeItens>
         )
     }

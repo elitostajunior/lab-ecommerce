@@ -8,9 +8,11 @@ class Carrinho extends React.Component {
             <ConjuntoDoCarrinho>
                 <h2>Carrinho:</h2>
                 <div>
-                    <Itens/>
-                    <Itens/>
-                    <Itens/>
+                    <Itens
+                        quantidade={10}
+                        nome={"produto 1"}
+                        onClick = {() => console.log("removeu")}
+                    />
                 </div>
                 <p>Valor total: R$ 0,00</p>
             </ConjuntoDoCarrinho>
