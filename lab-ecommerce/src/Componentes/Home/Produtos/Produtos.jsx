@@ -18,7 +18,7 @@ class Produtos extends React.Component {
             imagem={produto.photo}
             nome={produto.name}
             valor={produto.price}
-            onClick={() => console.log(produto.id)}
+            onClick={() => this.props.onClick(produto)}
         />
     });
 

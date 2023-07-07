@@ -58,8 +58,8 @@ class App extends React.Component {
     })
   }
 
-  funcaoDeTeste = (event) => {
-    console.log(event.target.value)
+  adicionarProdutoNoCarrinho = (produto) => {
+    console.log(produto)
   }
 
   render() {
@@ -83,6 +83,7 @@ class App extends React.Component {
           onChangeCabecalho={this.ordenarProdutos}
           ordenacao = {this.state.ordenacao}
           produtos = {pacoteDeProdutos}
+          onClick = {this.adicionarProdutoNoCarrinho}
         />
       </div>
     );
