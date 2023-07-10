@@ -11,20 +11,7 @@ class App extends React.Component {
     filtroMaximo: 10000,
     filtroBuscaPorNome: "",
     ordenacao: "Crescente",
-    carrinho: [
-      {
-        id: 1,
-        name: 'Produto legal',
-        price: 123,
-        photo: 'https://picsum.photos/200/200?a=1',
-      },
-      {
-        id: 2,
-        name: 'Produto 2',
-        price: 200,
-        photo: 'https://picsum.photos/200/200?a=2',
-      }
-    ],
+    carrinho: [],
     valorTotal: 0
   };
 
@@ -69,15 +56,33 @@ class App extends React.Component {
   };
 
   ordenarProdutos = (event) => {
-    console.log(event.target.value)
     this.setState({
       ordenacao: event.target.value
-    })
-  }
+    });
+  };
 
   adicionarProdutoNoCarrinho = (produto) => {
-    console.log(produto)
-  }
+    if(produto.quantidade !== 1){
+      produto.quantidade = 1    
+      const novoCarrinho = [produto, ...this.state.carrinho]
+
+      this.setState({
+        carrinho: novoCarrinho,
+      });
+    } else {
+      const novoCarrinho = this.state.carrinho.map((item) => {
+        if (produto.id === item.id && item.quantidade >= 1) {
+          return { ...item, quantidade: item.quantidade + 1 }
+        } else {
+          return item
+        }
+      });
+
+      this.setState({
+        carrinho: novoCarrinho,
+      });
+    };
+  };
 
   removerItemDoCarrinho = (item) => {
     console.log("produto", item)

@@ -14,12 +14,15 @@ class Produtos extends React.Component {
     });
 
     const produtosMapeados = produtosOrdenados && produtosOrdenados.map(produto => {
-        return <CartaoDosProdutos 
-            imagem={produto.photo}
-            nome={produto.name}
-            valor={produto.price}
-            onClick={() => this.props.onClick(produto)}
-        />
+        return (
+            <CartaoDosProdutos 
+                key={produto.id}
+                imagem={produto.photo}
+                nome={produto.name}
+                valor={produto.price}
+                onClick={() => this.props.onClick(produto)}
+            />
+        )
     });
 
     return (
