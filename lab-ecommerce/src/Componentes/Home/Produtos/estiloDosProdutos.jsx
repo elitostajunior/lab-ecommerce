@@ -11,4 +11,5 @@ export const GrupoDeCartoes = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     margin-top: 10px;
+    margin: 10px 0;
 `;
