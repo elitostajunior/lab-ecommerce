@@ -90,6 +90,8 @@ class App extends React.Component {
         carrinho: novoCarrinho,
       });
     };
+
+    this.adicionarValorTotal(produto.price)
   };
 
   removerItemDoCarrinho = (itemParaRemover) => {
@@ -118,7 +120,21 @@ class App extends React.Component {
         carrinho: novoCarrinho
       });
     }
-  }
+
+    this.removerValorTotal(itemParaRemover.price)
+  };
+
+  adicionarValorTotal = (valor) => {
+    this.setState({
+      valorTotal: this.state.valorTotal + valor
+    });
+  };
+
+  removerValorTotal = (valor) => {
+    this.setState({
+      valorTotal: this.state.valorTotal - valor
+    });
+  };
 
   render() {
     const produtosFiltrados = this.filtrarProdutos()
