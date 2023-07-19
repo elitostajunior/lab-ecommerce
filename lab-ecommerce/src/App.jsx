@@ -4,10 +4,11 @@ import { pacoteDeProdutos } from "./pacoteDeProdutos";
 import Produtos from "./Componentes/Home/Produtos/Produtos";
 import Carrinho from "./Componentes/Carrinho/Carrinho";
 import { ConjuntoDeComponentes } from "./estiloDoApp";
+import Header from "./Componentes/Header/Header";
 
 class App extends React.Component {
   state = {
-    filtroMinimo: 20,
+    filtroMinimo: 100,
     filtroMaximo: 10000,
     filtroBuscaPorNome: "",
     ordenacao: "Crescente",
@@ -140,29 +141,32 @@ class App extends React.Component {
     const produtosFiltrados = this.filtrarProdutos()
 
     return (
-      <ConjuntoDeComponentes>
-        <Filtros
-          minimo={this.state.filtroMinimo}
-          maximo={this.state.filtroMaximo}
-          buscaPorNome={this.state.filtroBuscaPorNome}
+      <div>
+        <Header/>
+        <ConjuntoDeComponentes>
+          <Filtros
+            minimo={this.state.filtroMinimo}
+            maximo={this.state.filtroMaximo}
+            buscaPorNome={this.state.filtroBuscaPorNome}
 
-          onChangeMinimo = {this.manipularValorDoFiltroMinimo}
-          onChangeMaximo = {this.manipularValorDoFiltroMaximo}
-          onChangeBuscaPorNome = {this.manipularValorDoFiltroBuscaPorNome}
-        />
-        <Produtos
-          quantidade = {produtosFiltrados.length}
-          onChangeCabecalho={this.ordenarProdutos}
-          ordenacao = {this.state.ordenacao}
-          produtos = {produtosFiltrados}
-          onClick = {this.adicionarProdutoNoCarrinho}
-        />
-        <Carrinho
-          carrinho = {this.state.carrinho}
-          valorTotal = {this.state.valorTotal}
-          removerItemDoCarrinho = {this.removerItemDoCarrinho}
-        />
-      </ConjuntoDeComponentes>
+            onChangeMinimo = {this.manipularValorDoFiltroMinimo}
+            onChangeMaximo = {this.manipularValorDoFiltroMaximo}
+            onChangeBuscaPorNome = {this.manipularValorDoFiltroBuscaPorNome}
+          />
+          <Produtos
+            quantidade = {produtosFiltrados.length}
+            onChangeCabecalho={this.ordenarProdutos}
+            ordenacao = {this.state.ordenacao}
+            produtos = {produtosFiltrados}
+            onClick = {this.adicionarProdutoNoCarrinho}
+          />
+          <Carrinho
+            carrinho = {this.state.carrinho}
+            valorTotal = {this.state.valorTotal}
+            removerItemDoCarrinho = {this.removerItemDoCarrinho}
+          />
+        </ConjuntoDeComponentes>
+      </div>
     );
   }
 }
