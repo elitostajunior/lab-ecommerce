@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-const HeaderContainer = styled.div`
+const TopComponent = styled.div`
     background: #8133C0;
     background: linear-gradient(to right, #8133C0 0%, #564CFF 50%, #0B39C5 100%);
     display: flex;
@@ -34,10 +34,10 @@ const Login = styled.button`
 class Header extends React.Component {
     render() {
         return (
-            <HeaderContainer>
+            <TopComponent>
                 <Logo>Space Shop</Logo>
                 <Login>LOGIN</Login>
-            </HeaderContainer>
+            </TopComponent>
         )
     }
 };
